@@ -17,6 +17,8 @@ gem 'turbolinks', '~> 5'
 
 gem 'jbuilder', '~> 2.7'
 
+gem "pico-rails"
+
 # gem 'redis', '~> 4.0'
 
 # gem 'bcrypt', '~> 3.1.7'

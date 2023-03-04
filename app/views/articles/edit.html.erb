@@ -1,4 +1,4 @@
-<h1>Create a new article</h1>
+<h1>Edit your article here</h1>
 
 <%# if errors with save throw this %>
 <% if @article.errors.any? %>
@@ -12,8 +12,9 @@
   </ul>
 <% end %>
 
-<%# article form %>
-<%= form_with scope: :article, url: articles_path, local: true do |f|%>
+<%# edit form %>
+<%# different from the new article form because I am inserting the saved article info into the form fields. Note to self, when you're doing this do it right away when this .erb file is created %>
+<%= form_with(model: @article, local: true) do |f|%>
   <p>
     <%= f.label :title %>
     <br/>
@@ -29,4 +30,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Return to articles listing', articles_path(@article) %>
+<%= link_to 'Cancel and return to articles listing', articles_path(@article) %>

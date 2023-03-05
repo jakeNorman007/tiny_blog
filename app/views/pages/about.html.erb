@@ -1,12 +1,18 @@
-<body>
-  <main class ="container">
-  <article>
-    <header><h1>TinyBlog About Page</h1></header>
-    <h2>Body</h2>
-    <footer>
-      <%= link_to 'Articles listing', articles_path %> |
-      <%= link_to 'Home', root_path %> 
-    </footer>
-  </article>
+<body class="conatainer">
+  <main>
+    <article>
+      <header class="headings"><h2>About TinyBlog</h2></header>
+      <hgroup>
+        <p>TinyBlog is exactly what it says it is.</p>
+        <br/>
+        <p>A tiny blog. TinlyBlog is built to be lightweight, simplistic in its architecture, but most importantly serve the purpose of a fully function blog platform.</p>
+        <br/>
+        <p>Simple shit for simple people.</p>
+      </hgroup>
+      <footer>
+        <div><h6><%= link_to 'Articles', articles_path %></h6></div>
+        <div><h6> | </h6></div>
+        <div><h6><%= link_to 'Home', root_path %></h6></div>
+      </footer>
   </main>
 </body>

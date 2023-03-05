@@ -1,12 +1,22 @@
+<nav class="container-fluid">
+  <ul>
+    <li><h2>TinyBlog Home Page</h2></li>
+  </ul>
+  <ul>
+    <li>
+      <div>
+        <%= link_to 'Articles', articles_path %>
+        <%= link_to 'About', about_path %>
+      </div>
+    </li>
+  </ul>
+</nav>
 <body>
-  <main class ="container">
-  <article>
-    <header><h1>TinyBlog Home Page</h1></header>
-    <h2>Body</h2>
-    <footer>
-      <%= link_to 'Articles listing', articles_path %> |
-      <%= link_to 'About', about_path %> 
-    </footer>
-  </article>
+  <main class="container">
   </main>
 </body>
+<footer class="container-fluid">
+    <div>
+      <small>Here is some shit for the footer</small>
+    </div>
+</footer>

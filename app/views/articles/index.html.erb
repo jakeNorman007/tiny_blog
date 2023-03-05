@@ -1,24 +1,23 @@
 <h1>Articles listing page</h1>
-
-<div>
-  <div>Title</div>
-  <div>Description</div>
-  <div colspan='3'>Actions</div>
-</div>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Description</th>
+    <th colspan='3'>Actions</th>
+  </thead>
 
 <%# iterates through all active articles in db and displats them, is that considered? dynamic? idk man.%>
-<div>
-  <% @articles.each do |article| %>
-    <div>
-      <td><%= article.title %></td>
-      <td><%= article.description %></td>
-    </div>
-    <div class="grid">
-      <div><%= button_to 'Show', article_path(article) %></div>
-      <div><%= button_to 'Edit', edit_article_path(article) %></div>
-      <div><%= button_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></div>
-    </div>
-  <% end %>  
-</div>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.description %></td>
+        <td><%= link_to 'Show', article_path(article) %></td>
+        <td><%= link_to 'Edit', edit_article_path(article) %></td>
+        <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
 
 <%= button_to 'Create new article', new_article_path %>

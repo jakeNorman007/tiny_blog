@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <title>TinyBlog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,6 @@
     <%# if this throws an error, revert to node prior to 15, trust me %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body class="container">
     <%# displays sucessful save via def create in articles_controller, it's here because this layout is common with all views in the app. This is why the flash makes sense here, _messages partial%>
     <%= render 'layouts/messages' %>

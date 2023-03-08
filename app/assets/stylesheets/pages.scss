@@ -1,23 +1,18 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-nav ul li {
-  display: inline-block;
-  justify-content: center;
-}
-
-h5 {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  padding-right: 1rem;
+.div-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 article {
@@ -25,10 +20,38 @@ article {
 }
 
 ul li {
-  display: inline-block;
+  display: inline;
   justify-content: center;
+  padding: 0 1rem 0 1rem;
 }
 
 h1 {
   text-align: center;
+}
+
+h4 {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem 0 1rem;
+}
+
+h5 {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem 0 1rem;
+}
+
+.card-links {
+  padding-right: 0.5rem;
+}
+
+.text-area {
+  resize: none;
+}
+
+.errors {
+  display: flex;
+  color: #e53935;
 }

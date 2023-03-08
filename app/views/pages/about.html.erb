@@ -1,13 +1,20 @@
-<article>
-  <h2>About TinyBlog.</h2>
-  <p>TinyBlog is exactly what it says it is.</p>
-  <p>A tiny blog. TinlyBlog is built to be lightweight and simplistic in it's architecture.
-  </p>
-  <p>
-  Most importantly TinyBlog serves the purpose of a fully functional blogging platform.
-  </p>
-  <br/>
-  <p>Simple things for simple people.</p>
-  <h5><%= link_to 'Home.', root_path %></h5>
-  <h5><%= link_to 'Articles.', articles_path %></h5>
-</article>
+<body>
+  <main>
+    <article>
+      <header>
+        <b>About TinyBlog.</b>
+      </header>
+      <p>TinyBlog is exactly what it says it is.</p>
+      <p>A tiny blog. TinlyBlog is built to be lightweight and simplistic in it's architecture.
+      </p>
+      <p>
+      Most importantly TinyBlog serves the purpose of a fully functional blogging platform.
+      </p>
+      <p>Simple things for simple people.</p>
+      <footer>
+        <b><%= link_to 'Home.', root_path, class: "card-links" %></b>
+        <b><%= link_to 'Articles.', articles_path %></b>
+      </footer>
+    </article>
+  </main>
+</body>

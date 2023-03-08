@@ -1,27 +1,17 @@
-<body>
-  <main class="container-fluid">
-    <div>
-      <h1>All articles.</h1>
-    </div>
+<body class="container">
+  <main>
+    <h1>All articles.</h1>
     <div>
       <% @articles.each do |article| %>
         <article>
-          <header><%= article.title %></header>
-          <%= article.description %>
-          <div>
-            <ul>
-              <li>
-                <%= link_to 'Show', article_path(article) %>
-              </li>
-              <li>
-                <%= link_to 'Edit', edit_article_path(article) %>
-              </li>
-              <li>
-                <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
-              </li>
-            </ul>         
-          </div>
-          <footer><%= link_to 'Create new article', new_article_path %></footer>
+          <header><b><%= article.title %></header>
+          <%= article.description %></b>
+          <footer><b>
+            <%= link_to 'See.', article_path(article), class: "card-links" %>
+            <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
+            <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
+            <%= link_to 'Create new.', new_article_path, class: "card-links" %></b>
+          </footer>
         </article>
       <% end %>  
     </div>

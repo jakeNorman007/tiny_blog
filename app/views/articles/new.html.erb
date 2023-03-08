@@ -1,7 +1,11 @@
-<h1>Create a new article</h1>
-
-<%= render 'errors' %>
-<%# if errors with save throw this, _form partial %>
-<%= render 'form' %>
-
-<%= link_to 'Return to articles listing', articles_path %>
+<body>
+  <main>
+    <h1>Create new article.</h1>
+    <%= render 'errors' %>
+    <%# if errors with save throw this, _form partial %>
+    <article>
+      <%= render 'form' %>
+    </article>
+    <%= link_to 'Return to articles listing', articles_path %>
+  </main>
+</body> 

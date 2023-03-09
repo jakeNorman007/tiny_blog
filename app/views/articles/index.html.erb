@@ -4,7 +4,12 @@
     <div>
       <% @articles.each do |article| %>
         <article>
-          <header><b><%= article.title %></header>
+          <header>
+            <b><%= article.title %></b>
+            <div>
+              User: <%= article.user.username %>
+            </div>
+          </header>
           <%= article.description %></b>
           <footer><b>
             <%= link_to 'See.', article_path(article), class: "card-links" %>

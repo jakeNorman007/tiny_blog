@@ -1,6 +1,11 @@
 <body>
   <article>
-    <header><b>Article title and details.</b></header>
+    <header>
+      <b>Article title and details.</b>
+      <div>
+        User: <%= @article.user.username %>
+      </div>
+    </header>
     <hgroup>
       <p>Title: <%= @article.title %></p>
       <p>Description: <%= @article.description %></p>

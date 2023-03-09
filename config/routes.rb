@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   # don't have to show 'only' because all routes are exposed.
   resources :articles
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end

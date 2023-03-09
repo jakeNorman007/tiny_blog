@@ -1,7 +1,7 @@
 <body>
   <main>
     <h1>Edit article.</h1>
-    <%= render 'errors' %>
+    <%= render 'shared/errors', obj: @article %>
     <%# if errors with save throw this, _form partial %>
     <article>
       <%= render 'form' %>

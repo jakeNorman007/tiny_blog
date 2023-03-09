@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <input type="text" placeholder="The following errors prevented the <%= obj.class.name.downcase %> from being saved!" aria-invalid="true">
+  <ul class="errors">
+    <% obj.errors.full_messages.each do |msg| %>
+    <li>
+      <%= msg %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

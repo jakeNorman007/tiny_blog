@@ -1,4 +1,4 @@
-<%# sign up form %>
+<%# edit form %>
 <%= form_with(model: @user, local: true) do |f|%>
   <%= f.label :username %>
   <%= f.text_field :username, placeholder: "username" %>
@@ -6,5 +6,5 @@
   <%= f.email_field :email, placeholder: "email" %>
   <%= f.label :password %>
   <%= f.password_field :password, placeholder: "password" %>
-  <%= f.submit "Sign up." %>
+  <%= f.submit(@user.new_record? ? "Sign up" : "Update account.") %>
 <% end %>

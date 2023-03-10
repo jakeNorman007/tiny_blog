@@ -10,7 +10,6 @@
       <p>Title: <%= @article.title %></p>
       <p>Description: <%= @article.description %></p>
     </hgroup>
-      <small>Created at <%= time_ago_in_words(@article.crated_at) %></small>
     <footer>
       <b><%= link_to 'Edit.', edit_article_path(@article), class: "card-links" %></b>
       <b><%= link_to 'Delete.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %></b>

@@ -1,24 +1,6 @@
 <body class="container">
   <main>
     <h1>All articles.</h1>
-    <div>
-      <% @articles.each do |article| %>
-        <article>
-          <header>
-            <b><%= article.title %></b>
-            <div>
-              User: <%= article.user.username %>
-            </div>
-          </header>
-          <%= article.description %></b>
-          <footer><b>
-            <%= link_to 'See.', article_path(article), class: "card-links" %>
-            <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
-            <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
-            <%= link_to 'Create new.', new_article_path, class: "card-links" %></b>
-          </footer>
-        </article>
-      <% end %>  
-    </div>
+    <%= render 'article', obj: @articles%>
   </main>
 </body>

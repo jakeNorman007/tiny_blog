@@ -1,13 +1,15 @@
 <div>
-  <% obj.each do |article| %>
+  <% @articles.each do |article| %>
     <article>
       <header>
-        <b><%= article.title %></b>
+        <b><%= link_to  article.title, article_path(article) %></b>
         <div>
-          User: <%= article.user.username %>
+          <% if article.user %>
+           User: <%= link_to article.user.username, user_path(article.user) %>
+          <% end %>
         </div>
       </header>
-      <%= article.description %></b>
+      <%= truncate(article.description, length: 100) %></b>
       <footer><b>
         <%= link_to 'See.', article_path(article), class: "card-links" %>
         <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>

@@ -1,6 +1,7 @@
 <body>
   <main>
     <h1>TinyBlog users.</h1>
+    <%= will_paginate @users %>
     <div>
       <% @users.each do |user| %>
         <article>
@@ -18,6 +19,7 @@
         </article>
       <% end %>  
     </div>
+    <%= will_paginate @users %>
     <%= link_to 'Return home.', root_path %>
   </main>
 </body> 

@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
     # two bang turns current_user method into a bool
     !!current_user
   end
+
+  def require_user
+    if !logged_in?
+      flash[:alert] = "You must be logged in to do that."
+      redirect_to login_path
+    end
+  end
 end

@@ -2,7 +2,9 @@
   <main>
     <h1><%= @user.username %>'s profile.</h1>
     <div>
-      <%= link_to "Edit profile", edit_user_path(@user) %>
+      <% if logged_in? && @user == current_user %>
+        <%= link_to "Edit profile.", edit_user_path(@user) %>
+      <% end %>
       <% if logged_in? %>
         <%= link_to 'Log out.', logout_path, method: :delete %>
       <% else %>
@@ -12,4 +14,4 @@
     <%= render 'articles/article', obj: @user %>
     <%= link_to 'Home.', root_path %>
   </main>
-</body> 
+</body>

@@ -2,7 +2,7 @@
   <article>
     <header>
       <%# add created at and edited at time stamp to articles %>
-      <b>Article title and details.</b>
+      Article title and details.
       <div>
         User: <%= @article.user.username %>
       </div>
@@ -12,9 +12,11 @@
       <p>Description: <%= @article.description %></p>
     </hgroup>
     <footer>
-      <b><%= link_to 'Edit.', edit_article_path(@article), class: "card-links" %></b>
-      <b><%= link_to 'Delete.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %></b>
-      <b><%= link_to 'Return to articles listing.', articles_path(@article), class: "card-links" %></b>
+      <% if logged_in? && @article.user == current_user %>
+        <%= link_to 'Edit.', edit_article_path(@article), class: "card-links" %>
+        <%= link_to 'Delete.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %>
+      <% end %>
+      <%= link_to 'Return to articles listing.', articles_path(@article), class: "card-links" %></b>
     </footer>
   </article>
 </body>

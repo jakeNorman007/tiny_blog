@@ -1,9 +1,10 @@
 <body class="container">
   <main>
+    <%# TODO: fix pagination to hold more than one article per page %>
     <h1>All articles.</h1>
+    <%= link_to 'Log out.', logout_path, method: :delete %>
     <%= will_paginate @articles %>
     <%= render 'article', obj: @articles %>
   </main>
   <%= will_paginate @articles %>
-  <%= link_to "Home.", root_path %>
 </body>

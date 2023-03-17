@@ -12,7 +12,7 @@
       <%= truncate(article.description, length: 100) %>
       <footer>
         <%= link_to 'See.', article_path(article), class: "card-links" %>
-        <% if logged_in? && article.user == current_user %>
+        <% if logged_in? && (article.user == current_user || current_user.admin?) %>
           <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
           <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
         <% end %>

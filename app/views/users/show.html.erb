@@ -5,6 +5,10 @@
       <% if logged_in? && @user == current_user %>
         <%= link_to "Edit profile.", edit_user_path(@user) %>
       <% end %>
+      <% if logged_in? && @user == current_user %>
+        <%# TODO change color of "Delete Profile"? %>
+        <%= link_to "Delete profile.", user_path(current_user), method: :delete, data: {confirm: "Sure about that?"} %>
+      <% end %>
       <% if logged_in? %>
         <%= link_to 'Log out.', logout_path, method: :delete %>
       <% else %>

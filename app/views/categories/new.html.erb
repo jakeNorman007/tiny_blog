@@ -1,0 +1,14 @@
+<body>
+  <main>
+    <h1>Create a new category.</h1>
+    <%= render 'shared/errors', obj: @category %>
+    <article>
+      <%= form_with(model: @category, local: true) do |f|%>
+        <%= f.label :name, "Category name" %>
+        <%= f.text_field :name, placeholder: "category name" %>
+        <%= f.submit %>
+      <% end %>
+    </article>
+    <%= link_to 'Home.', root_path %>
+  </main>
+</body> 

@@ -1,13 +1,13 @@
 <div class="div-center">
   <ul>
     <li>
-      <h4>TinyBlog.</h4>
+      <h4><%= link_to "TinyBlog.", about_path %></h4>
     </li>
     <li>
       <h4><%= link_to 'Articles.', articles_path %></h4>
     </li>
     <li>
-      <h4><%= link_to 'About.', about_path %></h4>
+      <h4><%= link_to 'Categories.', categories_path %></h4>
     </li>
     <% if logged_in? %>
       <li>

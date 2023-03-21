@@ -4,5 +4,8 @@
   <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_area :description, :rows => 15, class: "text-area" %>
+  <%= f.label :category %>
+  <%# TODO: dropdown styling %>
+  <%= f.collection_select(:category_ids, Category.all, :id, :name, {prompt: "Select a category for your post. (can be empty)"}, {multiple: true}) %>
   <%= f.submit %>
 <% end %>

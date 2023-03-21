@@ -7,6 +7,11 @@
           <% if article.user %>
            User: <%= link_to article.user.username, user_path(article.user) %>
           <% end %>
+          <div>
+            <%if article.categories.any? %>
+              <%= render article.categories %>
+            <% end %>
+          </div>
         </div>
       </header>
       <%= truncate(article.description, length: 100) %>

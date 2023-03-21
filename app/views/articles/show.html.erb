@@ -2,10 +2,12 @@
   <article>
     <header>
       <%# add created at and edited at time stamp to articles %>
-      Article title and details.
       <div>
-        User: <%= @article.user.username %>
+        Article by user: <%= @article.user.username %>
       </div>
+      <% if @article.categories.any? %>
+        Categories:<%= render @article.categories%>
+      <% end %>
     </header>
     <hgroup>
       <p>Title: <%= @article.title %></p>

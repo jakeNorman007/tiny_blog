@@ -5,7 +5,11 @@
   <% @categories.each do |category| %>
     <article>
       Category name: <%= link_to category.name, category_path(category) %>
+      <div>
+        <%= pluralize(category.articles.count, "category") %>
+      </div>
     </article>
+    <%# create time stamps %>
   <% end %>
   <%= will_paginate @categories %>
 </div>

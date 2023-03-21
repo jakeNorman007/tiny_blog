@@ -1,0 +1,11 @@
+<h1>TinyBlog categories.</h1>
+<div>
+  <%# TODO: change pagination %>
+  <%= will_paginate @categories %>
+  <% @categories.each do |category| %>
+    <article>
+      Category name: <%= link_to category.name, category_path(category) %>
+    </article>
+  <% end %>
+  <%= will_paginate @categories %>
+</div>

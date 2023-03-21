@@ -1,4 +1,5 @@
 <% if obj.errors.any? %>
+  <%# 'errors' has to stay in here for integration test for incorrect categories %>
   <input type="text" placeholder="The following errors prevented the <%= obj.class.name.downcase %> from being saved!" aria-invalid="true">
   <ul class="errors">
     <% obj.errors.full_messages.each do |msg| %>

@@ -1,6 +1,7 @@
 require "application_system_test_case"
 
 class CategoriesTest < ApplicationSystemTestCase
+  
   setup do
     @category = categories(:one)
   end

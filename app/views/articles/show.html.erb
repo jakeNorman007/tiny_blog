@@ -3,7 +3,7 @@
     <header>
       <%# add created at and edited at time stamp to articles %>
       <div>
-        Article by user: <%= @article.user.username %>
+        Article: <%= @article.user.username %>
       </div>
       <% if @article.categories.any? %>
         Categories:<%= render @article.categories%>

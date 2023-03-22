@@ -6,9 +6,10 @@ A tiny blog. TinlyBlog is built to be lightweight, simplistic in its architectur
 
 Simple things for simple people.
 
-TODO: User sign in Integration testing
-      New article Integration testing
-      Comments
-      profile pictures
-      final styling
-<br/>
+TODO: 
++ User sign in Integration testing
++ New article Integration testing
++ Comments
++ Profile pictures
++ Final styling
+

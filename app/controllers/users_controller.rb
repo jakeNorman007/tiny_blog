@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "Youur account has been update successfully."
+      flash[:notice] = "Your account has been update successfully."
       redirect_to @user
     else
       render 'edit'
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :avatar)
   end
 
   def set_user

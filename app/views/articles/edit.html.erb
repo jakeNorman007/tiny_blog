@@ -1,11 +1,5 @@
-<body>
-  <main>
-    <h1>Edit article.</h1>
-    <%= render 'shared/errors', obj: @article %>
-    <%# if errors with save throw this, _form partial %>
-    <article>
-      <%= render 'form' %>
-    </article>
-    <%= link_to 'Cancel and return to articles listing', articles_path %>
-  </main>
-</body>
+<h1>Edit article.</h1>
+<%= render 'shared/errors', obj: @article %>
+<%# if errors with save throw this, _form partial %>
+<%= render 'form' %>
+<%= link_to 'Cancel and return to articles listing', articles_path %>

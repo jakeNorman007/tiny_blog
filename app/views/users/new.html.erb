@@ -1,10 +1,17 @@
-<body>
-  <main>
-    <h1>Sign up.</h1>
+<main>
+  <div class='container'>
     <%= render 'shared/errors', obj: @user %>
     <article>
+      <hgroup>
+        <h1>Sign up.</h1>
+        <h6>Welcome to tinyblog.</h6>
+      </hgroup>
       <%= render 'form' %>
+      <%= link_to 'go back home.', root_path, class: 'container' %>
+      <%= link_to 'already signed up?', login_path, class: 'container' %>
     </article>
-    <%= link_to 'Home.', root_path %>
-  </main>
-</body> 
+  </div>
+</main>
+<footer class='container'>
+  <small>built by jake.</small>
+</footer>

@@ -1,31 +1,28 @@
-<div>
-  <% @articles.each do |article| %>
-    <article>
-      <header>
-        <%= link_to  article.title, article_path(article) %>
-        <div>
-          <% if article.user %>
-           User: <%= link_to article.user.username, user_path(article.user) %>
-          <% end %>
-          <div>
-            <%if article.categories.any? %>
-              <%= render article.categories %>
-            <% end %>
-          </div>
-        </div>
-      </header>
-      <%= truncate(article.description, length: 100) %>
-      <footer>
-        <%= link_to 'See.', article_path(article), class: "card-links" %>
-        <% if logged_in? && (article.user == current_user || current_user.admin?) %>
-          <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
-          <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
+<% @articles.each do |article| %>
+  <article>
+    <header>
+      <%= link_to article.title, article_path(article) %>
+      <div>
+        <% if article.user %>
+          User: <%= link_to article.user.username, user_path(article.user) %>
         <% end %>
-      </footer>
-    </article>
-    <% if logged_in? %>
-      <%= link_to 'Create new.', new_article_path, class: "card-links" %>
-    <% end %>
-    <%= link_to 'Home.', root_path %>
-  <% end %>  
-</div>
+      </div>
+      <div>
+        <% if article.categories.any? %>
+          <%= render article.categories %>
+        <% end %>
+      </div>
+    </header>
+    <%= truncate(article.description, length: 50) %>
+    <footer>
+      <%= link_to 'See.', article_path(article), class: "card-links" %>
+      <% if logged_in? && (article.user == current_user || current_user.admin?) %>
+        <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
+        <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
+      <% end %>
+      <% if logged_in? %>
+        <%= link_to 'Create new.', new_article_path, class: "card-links" %>
+      <% end %>
+    </footer>
+  </article>
+<% end %>

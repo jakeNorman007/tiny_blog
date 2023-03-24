@@ -1,9 +1,12 @@
-<body>
-  <main>
-    <h1>Log in.</h1>
+<div class='container'>
+  <div>
     <article>
+      <hgroup>
+        <h1>Log in.</h1>
+        <h6>Welcome back.</h6>
+      </hgroup>
       <%= render 'form' %>
+      <%= link_to 'go back home.', root_path, class: 'container' %>
     </article>
-    <%= link_to 'Home.', root_path %>
-  </main>
-</body> 
+  </div>
+</div>

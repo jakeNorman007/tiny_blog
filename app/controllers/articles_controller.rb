@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
   def index
     # grabs and displays all articles in article path
-    @articles = Article.paginate(page: params[:page], per_page: 1)
+    @articles = Article.paginate(page: params[:page], per_page: 3)
   end
 
   def new

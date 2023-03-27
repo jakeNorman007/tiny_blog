@@ -1,44 +1,22 @@
-<body class='container'>
-  <article>
-    <div class='container'>
-      <h1><%= @user.username %>'s profile.</h1>
-    </div>
-    <div class='container'>
-      <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, class: 'profile-pics' %>
-      <% end %>
-      <ul>
-        <li>
-          <% if current_user.admin? %>
-            <%= "[Admin]" %>
-          <% end %>
-        </li>
-        <li>
-          <% if logged_in? && @user == current_user %>
-          <small><%= link_to "Edit profile.", edit_user_path(@user) %></small>
-          <% end %>
-        </li>
-        <li>
-          <% if logged_in? %>
-            <small><%= link_to 'Log out.', logout_path, method: :delete %></small>
-          <% else %>
-            <small><%= link_to 'Log in.', login_path %></small>
-          <% end %>
-        </li>
-        <li>
-          <% if logged_in? && @user == current_user %>
-            <%# TODO change color of "Delete Profile"? %>
-            <small><%= link_to "Delete profile.", user_path(current_user), method: :delete, data: {confirm: "Sure about that?"} %></small>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-    <div class='container'>
-      <h1>Articles.</h1>
-    </div>
-    <div>
-      <%= render 'articles/article', obj: @user %>
-    </div>
-  </article>
+<%= render 'shared/nav' %>
+<body>
+  <main>
+    <article>
+      <div class='container'>
+        <h1><%= @user.username %>'s profile.</h1>
+      </div>
+      <div class='container'>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class: 'profile-pics' %>
+        <% end %>
+      </div>
+      <div class='container'>
+        <h1>Articles.</h1>
+      </div>
+      <div>
+        <%= render 'articles/article', obj: @user %>
+      </div>
+    </article>
+  </main>
 </body>
 <%= link_to 'Explore other articles.', root_path %>

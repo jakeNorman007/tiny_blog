@@ -1,7 +1,24 @@
-<p>About TinyBlog.</p>
-<p>TinyBlog is exactly what it says it is.</p>
-<p>A tiny blog. TinlyBlog is built to be lightweight and simplistic in it's architecture.</p>
-<p>Most importantly TinyBlog serves the purpose of a fully functional blogging platform.</p>
-<p>Simple things for simple people.</p>
-<%= link_to 'Home.', root_path, class: "card-links" %>
-<%= link_to 'Articles.', articles_path %>
+<%= render 'shared/nav'%>
+<body>
+  <div>
+    <figure>
+      <%= image_tag 'tinyBlog image.jpg', class: 'about-pic' %>
+    </figure>
+    <div>
+      <h1 class='about'>About TinyBlog.</h1>
+    </div>
+    <div>
+      <article>   
+        TinyBlog is exactly what it says it is.
+        A tiny blog. TinlyBlog is built to be lightweight and simplistic in it's architecture.
+        Most importantly TinyBlog serves the purpose of a fully functional blogging platform.
+        Simple things for simple people.
+      </article>
+    </div>
+    <div>
+      <%= link_to 'Home.', root_path, class: "card-links" %>
+      <%= link_to 'Articles.', articles_path %>  
+    </div>
+  </div>
+</body>
+

@@ -9,7 +9,7 @@
     <%# if this throws an error, revert to node prior to 15, trust me %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class='container'>
     <main>
       <%# displays sucessful save via def create in articles_controller, it's here because this layout is common with all views in the app. This is why the flash makes sense here, _messages partial%>
       <%= render 'layouts/messages' %>

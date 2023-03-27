@@ -1,6 +1,7 @@
 <% @articles.each do |article| %>
   <article>
     <header>
+      <%= image_tag article.user.avatar, class: 'article-pics' %>
       <%= link_to article.title, article_path(article) %>
       <div>
         <% if article.user %>

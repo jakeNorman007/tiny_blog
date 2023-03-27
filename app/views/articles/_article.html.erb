@@ -1,29 +1,28 @@
 <% @articles.each do |article| %>
   <article>
-    <header>
-      <%= image_tag article.user.avatar, class: 'article-pics' %>
-      <%= link_to article.title, article_path(article) %>
+    <%= image_tag article.user.avatar, class: 'article-pics' %>
+    <% if article.user %>
+      <%= link_to article.user.username, user_path(article.user), class: 'weird-nav-thing-again' %>
+    <% end %>
+    <div class='category-list category-padding'>
+      Article title: <%= link_to article.title, article_path(article) %>
+      <br/>
+      <% if article.categories.any? %>
+        Article catgories:<%= render article.categories %>
+      <% end %>
+      <br/>
       <div>
-        <% if article.user %>
-          User: <%= link_to article.user.username, user_path(article.user) %>
-        <% end %>
+        <%= truncate(article.description, length: 50) %>
       </div>
-      <div>
-        <% if article.categories.any? %>
-          <%= render article.categories %>
-        <% end %>
-      </div>
-    </header>
-    <%= truncate(article.description, length: 50) %>
-    <footer>
-      <%= link_to 'See.', article_path(article), class: "card-links" %>
+      <br/>
+      <%= link_to 'Read more.', article_path(article), class: "card-links" %>
       <% if logged_in? && (article.user == current_user || current_user.admin?) %>
         <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
         <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
       <% end %>
       <% if logged_in? %>
-        <%= link_to 'Create new.', new_article_path, class: "card-links" %>
+        <%= link_to 'Create.', new_article_path, class: "card-links" %>
       <% end %>
-    </footer>
+    </div>
   </article>
 <% end %>

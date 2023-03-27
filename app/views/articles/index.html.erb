@@ -2,12 +2,19 @@
 <body class="container">
   <main>
     <%# TODO: fix pagination to hold more than one article per page %>
-    <h1>All articles.</h1>
+    <div class='container category-padding'>
+      <h1>All articles.</h1>
+    </div>
     <% if logged_in? %>
       <%= link_to 'Log out.', logout_path, method: :delete %>
     <% end %>
-    <%= will_paginate @articles %>
+    <div role="button" class="outline">
+      <small><%= will_paginate @articles %></small>
+    </div>
     <%= render 'article', obj: @articles %>
   </main>
-  <%= will_paginate @articles %>
+  <div role="button" class="outline">
+    <small><%= will_paginate @articles %></small>
+  </div>
+  <%= render 'shared/footer' %>
 </body>

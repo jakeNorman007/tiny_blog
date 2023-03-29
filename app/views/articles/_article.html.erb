@@ -1,28 +1,38 @@
 <% @articles.each do |article| %>
   <article>
-    <%= image_tag article.user.avatar, class: 'article-pics' %>
-    <% if article.user %>
-      <%= link_to article.user.username, user_path(article.user), class: 'weird-nav-thing-again' %>
-    <% end %>
-    <div class='category-list category-padding'>
-      Article title: <%= link_to article.title, article_path(article) %>
-      <br/>
-      <% if article.categories.any? %>
-        Article catgories:<%= render article.categories %>
-      <% end %>
-      <br/>
+    <div class='grid'>
       <div>
-        <%= truncate(article.description, length: 50) %>
+        <%# DONT FUCKING TOUCH THIS, YOU FIGURED IT OUT JUST FUCKING STOP %>
+        <% if article.user.avatar.attached? %>
+          <%= image_tag article.user.avatar, class: 'article-pics' %>
+        <% else %>
+          <%= image_tag 'user-3331256_960_720.webp', class: 'article-pics' %>
+        <% end %>
+        <% if article.user %>
+          <%= link_to article.user.username, user_path(article.user), class: 'weird-nav-thing-again' %>
+        <% end %>
       </div>
-      <br/>
-      <%= link_to 'Read more.', article_path(article), class: "card-links" %>
-      <% if logged_in? && (article.user == current_user || current_user.admin?) %>
-        <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
-        <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
-      <% end %>
-      <% if logged_in? %>
-        <%= link_to 'Create.', new_article_path, class: "card-links" %>
-      <% end %>
+      <div class='category-list'>
+        Article: <%= link_to article.title, article_path(article) %>
+        <br/>
+        <div class='category-padding'>
+          <%= truncate(article.description, length: 50) %>
+        </div>
+        <br/>
+        <div class='category-list'>
+          <%= link_to 'Read more.', article_path(article), class: "card-links" %>
+          <% if logged_in? && (article.user == current_user || current_user.admin?) %>
+            <%= link_to 'Edit.', edit_article_path(article), class: "card-links" %>
+            <%= link_to 'Delete.', article_path(article), class: "card-links", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+          <% if logged_in? %>
+            <%= link_to 'Create.', new_article_path, class: "card-links" %>
+          <% end %>
+        </div>
+      </div>
     </div>
+    <% if article.categories.any? %>
+      <small>Category:</small><small class='card-links-left'><%= render article.categories %></small>
+    <% end %>
   </article>
 <% end %>

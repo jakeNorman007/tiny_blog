@@ -1,5 +1,6 @@
 <body>
   <main>
+    <%= render 'shared/nav' %>
     <h1>TinyBlog users.</h1>
     <%= will_paginate @users %>
     <div>
@@ -29,4 +30,5 @@
     <%= will_paginate @users %>
     <%= link_to 'Return home.', root_path %>
   </main>
+  <%= render 'shared/footer' %>
 </body> 

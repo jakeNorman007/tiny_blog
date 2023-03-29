@@ -5,9 +5,6 @@
     <div class='container category-padding'>
       <h1>All articles.</h1>
     </div>
-    <% if logged_in? %>
-      <%= link_to 'Log out.', logout_path, method: :delete %>
-    <% end %>
     <div role="button" class="outline">
       <small><%= will_paginate @articles %></small>
     </div>

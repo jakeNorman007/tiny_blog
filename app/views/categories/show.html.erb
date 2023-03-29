@@ -1,13 +1,11 @@
 <h1>Category: <%= @category.name %></h1>
 <% if logged_in? && current_user.admin? %>
-  <%= link_to 'Delete.', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %>
+  <%= link_to "Edit category name.", edit_category_path(@category), class: 'card-links' %>
 <% end %>
 <% if logged_in? && current_user.admin? %>
-  <%= link_to "Edit category name.", edit_category_path(@category) %>
+  <%= link_to 'Delete category.', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %>
 <% end %>
-<div>
-  <h5>Articles</h5>
-</div>
 <%= will_paginate @articles, :container => false  %>
 <%= render 'articles/article' %>
 <%= will_paginate @articles, :container => false  %>
+<%= render 'shared/footer' %>

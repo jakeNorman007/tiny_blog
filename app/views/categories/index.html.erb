@@ -3,10 +3,12 @@
   <h1>TinyBlog categories.</h1>
 </div>
 <div>
-  <%# TODO: change pagination %>
-  <div role="button" class="outline">
-    <small><%= will_paginate @categories %></small>
-  </div>
+  <small><%= will_paginate @categories %></small>
+  <% if current_user.admin? %>
+    <div class='category-padding'>
+      <%= link_to 'Create new category.', new_category_path, role: 'button' %>
+    </div>
+  <% end %>
   <% @categories.each do |category| %>
     <article class='category-list'>
       Category: <%= link_to category.name, category_path(category) %>
@@ -15,8 +17,6 @@
       </div>
     </article>
   <% end %>
-  <div role="button" class="outline">
-    <small><%= will_paginate @categories %></small>
-  </div>
+  <small><%= will_paginate @categories %></small>
   <%= render 'shared/footer' %>
 </div>

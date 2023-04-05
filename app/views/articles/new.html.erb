@@ -1,12 +1,7 @@
-<body>
-  <main>
-    <h1>Create new article.</h1>
-    <%= render 'shared/errors', obj: @article %>
-    <%# if errors with save throw this, _form partial %>
-    <article>
-      <%= render 'form' %>
-    </article>
-    <%= link_to 'Return to articles listing', articles_path %>
-    <%= render 'shared/footer' %>
-  </main>
-</body> 
+<%= render 'shared/nav' %>
+<h1 class='category-padding'>Create new article.</h1>
+<%= render 'shared/errors', obj: @article %>
+<%# if errors with save throw this, _form partial %>
+<%= render 'form' %>
+<%= link_to 'Return to articles listing.', articles_path, role: 'button' %>
+<%= render 'shared/footer' %>

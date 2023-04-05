@@ -5,6 +5,12 @@
   overflow-anchor: none;
 }
 
+.container-article {
+  position: relative;
+  padding-top: 1rem;
+  width: 100%;
+}
+
 .menu-config {
   display: inline-flex;
   position: absolute;
@@ -35,8 +41,8 @@
   z-index: 1;
 }
 
-article {
-  align-items: center;
+.article-config {
+  text-align: center;
 }
 
 .category-list {
@@ -70,6 +76,10 @@ ul li {
   padding-top: 2rem;
 }
 
+.bottom {
+  padding-bottom: 2rem;
+}
+
 .text-area {
   resize: none;
 }
@@ -94,6 +104,12 @@ ul li {
 }
 
 .about-pic {
+  height: 20rem;
+  width: 60rem;
+  object-fit: cover;
+}
+
+.article-pic {
   height: 20rem;
   width: 60rem;
   object-fit: cover;

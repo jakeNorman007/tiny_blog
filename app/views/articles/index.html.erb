@@ -1,17 +1,13 @@
 <%= render 'shared/nav' %>
 <body class="container">
   <main>
-    <%# TODO: fix pagination to hold more than one article per page %>
     <div class='container category-padding'>
       <h1>All articles.</h1>
     </div>
-    <div role="button" class="outline">
-      <small><%= will_paginate @articles %></small>
-    </div>
+    <small><%= will_paginate @articles %></small>
+    <hr/>
     <%= render 'article', obj: @articles %>
   </main>
-  <div role="button" class="outline">
-    <small><%= will_paginate @articles %></small>
-  </div>
+  <small><%= will_paginate @articles %></small>
   <%= render 'shared/footer' %>
 </body>

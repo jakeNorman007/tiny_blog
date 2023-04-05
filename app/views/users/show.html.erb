@@ -1,33 +1,21 @@
 <%= render 'shared/nav' %>
-<body>
-  <main>
-    <article>
-      <div class='container'>
-        <h1><%= @user.username %>'s profile.</h1>
-      </div>
-      <div class='container'>
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: 'profile-pics' %>
-        <% else %>
-          <%= image_tag 'user-3331256_960_720.webp', class: 'profile-pics' %>
-        <% end %>
-      </div>
-      <div class='container'>
-        <h1>Articles.</h1>
-      </div>
-      <div role="button" class="outline">
-        <small><%= will_paginate @articles %></small>
-      </div>
-      <div>
-        <%= render 'articles/article', obj: @user %>
-      </div>
-    </article>
-    <div role="button" class="outline">
-      <small><%= will_paginate @articles %></small>
-    </div>
-  </main>
-</body>
+<div class='container'>
+  <h1 class='about container'><%= @user.username %>'s profile.</h1>
+</div>
+<div class='container'>
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, class: 'profile-pics' %>
+  <% else %>
+    <%= image_tag 'blank-profile-picture-g411026ec6_640.png', class: 'profile-pics' %>
+  <% end %>
+</div>
+<small><%= will_paginate @articles %></small>
+<hr/>
+<div>
+  <%= render 'articles/article', obj: @user %>
+<small><%= will_paginate @articles %></small>
+</div>
 <div class='category-padding'>
-  <%= link_to 'Explore other articles.', root_path %>
+  <%= link_to 'Explore other articles.', root_path, role: 'button' %>
 </div>
 <%= render 'shared/footer' %>

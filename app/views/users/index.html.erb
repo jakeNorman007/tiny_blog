@@ -1,34 +1,41 @@
-<body>
-  <main>
-    <%= render 'shared/nav' %>
-    <h1>TinyBlog users.</h1>
-    <%= will_paginate @users %>
-    <div>
-      <% @users.each do |user| %>
-        <article>
-          <header>
-            <div>
-             <%= link_to user.username, user %>
-            </div>
-          </header>
-          <%= pluralize(user.articles.count, "article") %>
-          <footer>
-            <%= link_to "View profile.", user %>
-            <% if logged_in? %>
-              <% if user == current_user %>
-                <%= link_to "Edit Profile.", edit_user_path(user) %>
-              <% end %>
-              <% if current_user.admin? %>
-                <%= link_to "Delete user.", user_path(user), method: :delete, data: {confirm: "Are you sure?"} %>
-              <% end %>
-            <% end %>
-            <br/>
-          </footer>
-        </article>
-      <% end %>  
+<%= render 'shared/nav' %>
+<h1 class='about container'>TinyBlog users.</h1>
+<div>
+  <%= will_paginate @users %>
+</div>
+<hr/>
+<div>
+  <% @users.each do |user| %>
+    <div class='category-list category-padding'>
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar, class: 'article-pics' %>
+      <% else %>
+        <%= image_tag 'blank-profile-picture-g411026ec6_640.png', class: 'article-pics' %>
+      <% end %>
+      <%= link_to user.username, user %>
     </div>
-    <%= will_paginate @users %>
-    <%= link_to 'Return home.', root_path %>
-  </main>
-  <%= render 'shared/footer' %>
-</body> 
+    <div class='category-list category-padding'>
+    <%= pluralize(user.articles.count, "article") %>
+    </div>
+    <div class='category-list category-padding'>
+      <%= link_to "View profile.", user, role: 'button' %>
+      <% if logged_in? %>
+        <% if user == current_user %>
+          <%= link_to "Edit Profile.", edit_user_path(user), role: 'button' %>
+        <% end %>
+        <% if current_user.admin? %>
+          <%= link_to "Delete user.", user_path(user), role: 'button', method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+      <% end %>
+    </div>
+    <br/>
+    <hr/>
+  <% end %>  
+</div>
+<div>
+  <%= will_paginate @users %>
+</div>
+<div class='category-padding'>
+  <%= link_to 'Return home.', root_path, role: 'button' %>
+</div>
+<%= render 'shared/footer' %>

@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   resources :categories
+
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server'
+  get '/422', to: 'errors#unprocessable'
 end

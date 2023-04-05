@@ -1,3 +1,7 @@
 <% flash.each do |name, msg| %>
-  <input type="text" placeholder="<%= msg %>" aria-invalid="false">
+  <% if notice %>
+    <input type="text" placeholder="<%= msg %>" aria-invalid="false">
+  <% else %>
+    <input type="text" placeholder="<%= msg %>" aria-invalid="true">
+  <% end %>
 <% end %>

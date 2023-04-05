@@ -21,17 +21,15 @@
         <br/>
         Built with <a href='https://rubyonrails.org/'>Ruby on Rails</a>
         <br/>
-        Styled with <a href='https://picocss.com/'>pico css</a>
+        Styled with <a href='https://picocss.com/'>Pico css</a>
         <br/>
       </article>
     </div>
     <div>
       <ul>
-        <li><%= link_to 'Home.', root_path %></li>
-        <li><strong>|</strong></li>
-        <li><%= link_to 'Articles.', articles_path %></li>
-        <li><strong>|</strong></li>
-        <li><%= link_to 'Users.', users_path %></li>
+        <li><%= link_to 'Home.', root_path, role: 'button' %></li>
+        <li><%= link_to 'Articles.', articles_path, role: 'button' %></li>
+        <li><%= link_to 'Users.', users_path, role: 'button' %></li>
       </ul>
     </div>
   </div>

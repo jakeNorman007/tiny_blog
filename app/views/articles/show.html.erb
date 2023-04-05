@@ -1,25 +1,36 @@
-<body>
-  <article>
-    <header>
-      <%# add created at and edited at time stamp to articles %>
-      <div>
-        Article: <%= @article.user.username %>
-      </div>
-      <% if @article.categories.any? %>
-        Categories:<%= render @article.categories%>
-      <% end %>
-    </header>
-    <hgroup>
-      <p>Title: <%= @article.title %></p>
-      <p>Description: <%= @article.description %></p>
-    </hgroup>
-    <footer>
-      <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
-        <%= link_to 'Edit.', edit_article_path(@article), class: "card-links" %>
-        <%= link_to 'Delete.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %>
-      <% end %>
-      <%= link_to 'Return to articles listing.', articles_path(@article), class: "card-links" %></b>
-    </footer>
-  </article>
-  <%= render 'shared/footer' %>
-</body>
+<%= render 'shared/nav' %>
+<div class='container-article category-padding'>
+  <div>
+    <% if @article.user.avatar.attached? %>
+      <%= image_tag @article.user.avatar, class: 'article-pics' %>
+    <% else %>
+      <%= image_tag 'blank-profile-picture-g411026ec6_640.png', class: 'article-pics' %>
+    <% end %>
+    <%= @article.user.username %>
+  </div>
+  <div class='category-padding'>
+    <h2><%= @article.title %></h2>
+    <% if @article.categories.any? %>
+      <%= render @article.categories%>
+    <% end %>
+  </div>
+  <hr/>
+  <div>
+    <% if @article.image.attached?%>
+      <%= image_tag @article.image, class: 'article-pic' %>
+    <% end %>
+  </div>
+  <div class='category-padding'>
+    <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+      <%= link_to 'Edit article.', edit_article_path(@article), class: "card-links", role: 'button' %>
+      <%= link_to 'Delete article.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links", role: 'button' %>
+    <% end %>
+    <%= link_to 'Return to all articles.', articles_path(@article), class: "card-links", role: 'button' %>
+  </div>
+  <hr/>
+  <div class='category-padding'>
+    <%= simple_format(@article.description) %>
+  </div>
+  <hr/>
+</div>
+<%= render 'shared/footer' %>

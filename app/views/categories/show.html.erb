@@ -1,11 +1,14 @@
-<h1>Category: <%= @category.name %></h1>
+<%= render 'shared/nav' %>
+<h1 class='category-padding'>Articles in category <%= @category.name %>.</h1>
 <% if logged_in? && current_user.admin? %>
-  <%= link_to "Edit category name.", edit_category_path(@category), class: 'card-links' %>
+  <%= link_to "Edit category name.", edit_category_path(@category), class: 'card-links', role: 'button' %>
 <% end %>
 <% if logged_in? && current_user.admin? %>
-  <%= link_to 'Delete category.', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links" %>
+  <%= link_to 'Delete this category.', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links", role: 'button' %>
 <% end %>
 <%= will_paginate @articles, :container => false  %>
+<hr/>
 <%= render 'articles/article' %>
 <%= will_paginate @articles, :container => false  %>
+<%= link_to 'back to articles.', root_path, role: 'button' %>
 <%= render 'shared/footer' %>

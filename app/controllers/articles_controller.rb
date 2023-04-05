@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     # updates the current article by id, white list
     if @article.update(article_params)
-      flash[:notice] = "Article was created sucessfully."
+      flash[:notice] = "Article was updeated sucessfully."
       redirect_to @article
     else
       render 'edit'
@@ -53,13 +53,12 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :description, category_ids: [])
+    params.require(:article).permit(:title, :description, :image, category_ids: [])
   end
 
   def require_same_user
     if current_user != @article.user && !current_user.admin?
-      # TODO change alert to bad
-      flash[:alert] = "You can only edit or delete your own articles."
+      flash[:alert] = "Sorry pal, you can only edit or delete your own articles."
       redirect_to @article
     end
   end

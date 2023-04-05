@@ -1,11 +1,6 @@
-<body>
-  <main>
-    <h1>Edit user.</h1>
-    <%= render 'shared/errors', obj: @user %>
-    <article>
-      <%= render 'form' %>
-    </article>
-    <%= link_to 'Home.', root_path %>
-  </main>
-  <%= render 'shared/footer' %>
-</body> 
+<%= render 'shared/nav' %>
+<h1 class='category-padding'>Edit user.</h1>
+<%= render 'shared/errors', obj: @user %>
+<%= render 'form' %>
+<%= link_to 'Home.', root_path, role: 'button' %>
+<%= render 'shared/footer' %> 

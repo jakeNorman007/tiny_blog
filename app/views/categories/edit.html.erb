@@ -1,8 +1,5 @@
-<body>
-  <main>
-    <h1>Edit a category.</h1>
-    <%= render 'form' %>
-    <%= link_to 'Category.', category_path(@category) %>
-  </main>
-  <%= render 'shared/footer' %>
-</body> 
+<%= render 'shared/nav' %>
+<h1 class='category-padding'>Edit category name.</h1>
+<%= render 'form' %>
+<%= link_to 'Back to category.', category_path(@category), role: 'button'  %>
+<%= render 'shared/footer' %>

@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  font-family: sans-serif;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -56,6 +61,7 @@
 
 h4 {
   padding: 0 1rem 0 1rem;
+  font-family: Helvetica, sans-serif;
 }
 
 ul li {

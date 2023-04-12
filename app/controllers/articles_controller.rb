@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
 
   def new
     # when you create a new article it prevents the loop in controller from throwing an error on first iteration
-    @article = Article.new
+    @article = Article.new # here I am working on some shit
   end
 
   def edit
@@ -63,3 +63,5 @@ class ArticlesController < ApplicationController
     end
   end
 end
+
+

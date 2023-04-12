@@ -1,0 +1,5 @@
+<p class='category-padding'>Leave a comment:</p>
+<%= form_with(model: [article, article.comments.build]) do |f| %>
+  <%= f.text_area :content, :cols => 5, class: 'text-area'%>
+  <%= f.submit "Submit." %>
+<% end %>

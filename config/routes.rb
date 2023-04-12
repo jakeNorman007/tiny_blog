@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
 
   # don't have to show 'only' because all routes are exposed.
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
+  
   get 'signup', to: 'users#new'
   resources :users
 

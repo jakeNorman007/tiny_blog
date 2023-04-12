@@ -20,7 +20,7 @@
       <%= image_tag @article.image, class: 'article-pic' %>
     <% end %>
   </div>
-  <div class='category-padding'>
+  <div class='category-padding bottom'>
     <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
       <%= link_to 'Edit article.', edit_article_path(@article), class: "card-links", role: 'button' %>
       <%= link_to 'Delete article.', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class:"card-links", role: 'button' %>
@@ -28,9 +28,12 @@
     <%= link_to 'Return to all articles.', articles_path(@article), class: "card-links", role: 'button' %>
   </div>
   <hr/>
-  <div class='category-padding'>
+  <div class='category-padding bottom'>
     <%= simple_format(@article.description) %>
+    <hr/>
   </div>
-  <hr/>
+  <h3>Comments:</h3>
+  <%= render @article.comments.order(id: :desc) %>
+  <%= render 'comments/form', article: @article %>
 </div>
 <%= render 'shared/footer' %>

@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post
 
+  # comments uses "content" and not "description" for the comments body text. I got to far into it to change it, so a users note. 
   def create
     @comment = @article.comments.create(comment_params)
     @comment.user = current_user
@@ -17,7 +18,6 @@ class CommentsController < ApplicationController
   end
 
   private
-
   def comment_params
     params.require(:comment).permit(:content)
   end

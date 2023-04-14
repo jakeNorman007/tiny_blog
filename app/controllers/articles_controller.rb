@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     # updates the current article by id, white list
     if @article.update(article_params)
-      flash[:notice] = "Article was updeated sucessfully."
+      flash[:notice] = "Article was updated sucessfully."
       redirect_to @article
     else
       render 'edit'

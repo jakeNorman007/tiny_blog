@@ -40,14 +40,13 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    # if admin deletes your shit they 9the admin) won't be logged out
+    # if admin deletes your shit they (the admin) won't be logged out
     session[:user_id] = nil if @user == current_user
     flash[:notice] = "Account and all articles have been deleted"
     redirect_to root_path
   end
 
   private
-
   def user_params
     params.require(:user).permit(:username, :email, :password, :avatar)
   end

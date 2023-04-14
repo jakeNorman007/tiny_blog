@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
 
-  # don't have to show 'only' because all routes are exposed.
+  # don't have to show 'only' because all routes are exposed. Nested routes for comments
   resources :articles do
     resources :comments
   end

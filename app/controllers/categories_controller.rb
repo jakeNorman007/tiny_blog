@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
   end
 
   def index
+    # defines pagination in the categories index view
     @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
@@ -47,7 +48,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-
   def category_params
     params.require(:category).permit(:name)
   end

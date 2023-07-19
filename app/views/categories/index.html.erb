@@ -4,7 +4,7 @@
 </div>
 <div>
   <small><%= will_paginate @categories %></small>
-  <% if current_user.admin? %>
+  <% if current_user && current_user.admin? %>
     <div class='category-padding'>
       <%= link_to 'Create new category.', new_category_path, role: 'button' %>
     </div>
